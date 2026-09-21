@@ -1,0 +1,167 @@
+// Inicialización de Lucide Icons
+lucide.createIcons();
+
+// Controlador de menú móvil
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
+
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+});
+
+// Función para generar elementos dinámicos
+function generateProblemas() {
+    const problemas = [
+        "Registros manuales en cuadernos o Excel.",
+        "Falta de control de ventas, clientes o inventario.",
+        "Reportes lentos o hechos manualmente.",
+        "Negocios sin presencia digital profesional.",
+        "Procesos repetitivos que consumen tiempo.",
+        "Falta de dashboards para tomar decisiones."
+    ];
+
+    const container = document.getElementById('problemas-grid');
+    if (container) {
+        container.innerHTML = problemas.map(problema => `
+            <div class="bg-white p-5 rounded-xl border border-gray-100 flex items-start space-x-3 shadow-sm">
+                <span class="text-red-500 mt-0.5 flex-shrink-0">
+                    <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                </span>
+                <span class="text-sm font-medium text-brand-graphite">${problema}</span>
+            </div>
+        `).join('');
+
+        // Volver a inicializar los iconos después de agregar el contenido dinámico
+        lucide.createIcons();
+    }
+}
+
+function generateModulo1() {
+    const features = [
+        "Usuarios y roles",
+        "Panel administrativo",
+        "Reportes integrales",
+        "Clientes",
+        "Productos",
+        "Pagos",
+        "Historial",
+        "Exportaciones"
+    ];
+
+    const container = document.getElementById('modulos-1');
+    if (container) {
+        container.innerHTML = features.map(feature => `
+            <div class="flex items-center space-x-2 text-sm text-brand-graphite">
+                <i data-lucide="check" class="w-4 h-4 text-brand-purpleBright"></i>
+                <span>${feature}</span>
+            </div>
+        `).join('');
+
+        lucide.createIcons();
+    }
+}
+
+function generateModulo2() {
+    const features = [
+        "Landing pages",
+        "Webs corporativas",
+        "Catálogos digitales",
+        "Formularios avanzados",
+        "Integración WhatsApp",
+        "Diseño responsive"
+    ];
+
+    const container = document.getElementById('modulos-2');
+    if (container) {
+        container.innerHTML = features.map(feature => `
+            <div class="flex items-center space-x-2 text-sm text-brand-graphite">
+                <i data-lucide="check" class="w-4 h-4 text-brand-purpleBright"></i>
+                <span>${feature}</span>
+            </div>
+        `).join('');
+
+        lucide.createIcons();
+    }
+}
+
+function generateModulo3() {
+    const features = [
+        "Reportes automáticos",
+        "Alertas en tiempo real",
+        "Flujos de trabajo",
+        "Integración Sheets",
+        "Bases de datos",
+        "Envío de información"
+    ];
+
+    const container = document.getElementById('modulos-3');
+    if (container) {
+        container.innerHTML = features.map(feature => `
+            <div class="flex items-center space-x-2 text-sm text-brand-graphite">
+                <i data-lucide="check" class="w-4 h-4 text-brand-purpleBright"></i>
+                <span>${feature}</span>
+            </div>
+        `).join('');
+
+        lucide.createIcons();
+    }
+}
+
+function generateModulo4() {
+    const features = [
+        "Chatbots conversacionales",
+        "Chatbots conversacionales",
+        "Asistentes internos",
+        "Análisis de documentos",
+        "Clasificación de datos",
+        "Generación de reportes",
+        "Herramientas inteligentes"
+    ];
+
+    const container = document.getElementById('modulos-4');
+    if (container) {
+        container.innerHTML = features.map(feature => `
+            <div class="flex items-center space-x-2 text-sm text-brand-graphite">
+                <i data-lucide="check" class="w-4 h-4 text-brand-purpleBright"></i>
+                <span>${feature}</span>
+            </div>
+        `).join('');
+
+        lucide.createIcons();
+    }
+}
+
+function generateProyectoTags() {
+    const proyectoData = [
+        { id: 'proyecto-1-tags', tags: ["Control de mesas", "Pedidos", "Cocina", "Pagos", "Inventario", "Reportes"] },
+        { id: 'proyecto-2-tags', tags: ["Registro de pacientes", "Historia clínica", "Citas", "Emergencias", "Reportes"] },
+        { id: 'proyecto-3-tags', tags: ["Gráficos", "Indicadores", "Filtros", "Reportes continuos"] },
+        { id: 'proyecto-4-tags', tags: ["Automatización", "Memoria local", "Gestión de archivos", "Comandos"] }
+    ];
+
+    proyectoData.forEach(item => {
+        const container = document.getElementById(item.id);
+        if (container) {
+            container.innerHTML = item.tags.map(tag => `
+                <span class="bg-gray-100 text-gray-600 text-xs px-2.5 py-1 rounded">${tag}</span>
+            `).join('');
+        }
+    });
+}
+
+// Ejecutar todas las funciones cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    generateProblemas();
+    generateModulo1();
+    generateModulo2();
+    generateModulo3();
+    generateModulo4();
+    generateProyectoTags();
+});

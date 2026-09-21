@@ -1,0 +1,392 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Paleta extraída del logo FP Systems — púrpura + grafito */
+  --color-brand-purpleDark: #551FB2;
+  --color-brand-purpleBright: #6D28D9;
+  --color-brand-purpleGlow: #A78BFA;
+  --color-brand-graphite: #1D2228;
+  --color-brand-darkGray: #3D4145;
+  --color-brand-lightGray: #F8F7FC;
+
+  /* Tipografías (variables inyectadas por next/font) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-title: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ============================================================
+   Logo del header (lockup panorámico — altura fija, ancho auto)
+   ============================================================ */
+.header-logo {
+  height: 2.25rem; /* 36px mobile */
+  width: auto;
+  max-width: 52vw;
+}
+
+@media (min-width: 768px) {
+  .header-logo {
+    height: 2.75rem; /* 44px tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-logo {
+    height: 3rem; /* 48px desktop */
+  }
+}
+
+/* ============================================================
+   Fondos decorativos (mesh + grid de marca) — Cian
+   ============================================================ */
+.hero-mesh {
+  background:
+    radial-gradient(60% 50% at 85% 10%, rgba(109, 40, 217, 0.16), transparent 60%),
+    radial-gradient(50% 45% at 5% 90%, rgba(167, 139, 250, 0.1), transparent 60%),
+    linear-gradient(180deg, #07111F 0%, #0B1B2B 100%);
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(167, 139, 250, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(167, 139, 250, 0.1) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Tile de módulos: gradiente cian contenido */
+.mesh-tile {
+  background:
+    radial-gradient(80% 80% at 20% 10%, rgba(109, 40, 217, 0.12), transparent 60%),
+    radial-gradient(60% 60% at 90% 90%, rgba(167, 139, 250, 0.1), transparent 60%),
+    linear-gradient(160deg, #F5F3FF, #ffffff);
+}
+
+/* ============================================================
+   Glassmorphism
+   ============================================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 8px 24px -12px rgba(7, 17, 31, 0.12);
+}
+
+/* ============================================================
+   Texto con gradiente de marca — Cian
+   ============================================================ */
+.text-gradient {
+  background: linear-gradient(92deg, #A78BFA 0%, #C4B5FD 48%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============================================================
+   Sombras con glow cian
+   ============================================================ */
+.glow-purple {
+  box-shadow: 0 8px 28px -10px rgba(109, 40, 217, 0.5);
+}
+
+.glow-purple-lg {
+  box-shadow: 0 24px 60px -20px rgba(109, 40, 217, 0.45);
+}
+
+/* ============================================================
+   Navegación: subrayado animado — Cian
+   ============================================================ */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6D28D9, #A78BFA);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   Scroll reveal (activado por IntersectionObserver)
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   Animaciones sutiles (flotación, pulso de estado)
+   ============================================================ */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+/* ============================================================
+   Service Showcase — Infinite Marquee (Direct PNG, No Cards)
+   ============================================================ */
+.service-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.service-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: service-marquee-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.service-marquee:hover .service-marquee-track {
+  animation-play-state: paused;
+}
+
+.service-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  padding-right: 12px;
+}
+
+/* Mobile: ~84vw por imagen */
+.service-marquee-image {
+  display: block;
+  width: 84vw;
+  height: auto;
+  flex: 0 0 auto;
+}
+
+/* Small mobile */
+@media (min-width: 400px) {
+  .service-marquee-image {
+    width: 82vw;
+  }
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .service-marquee-image {
+    width: clamp(300px, 36vw, 400px);
+    max-height: 280px;
+  }
+  .service-marquee-group {
+    gap: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .service-marquee-image {
+    width: clamp(320px, 28vw, 420px);
+    max-height: 260px;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1024px) {
+  .service-marquee-image {
+    width: clamp(340px, 26vw, 440px);
+    max-height: 280px;
+  }
+  .service-marquee-group {
+    gap: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* XL desktop */
+@media (min-width: 1280px) {
+  .service-marquee-image {
+    width: clamp(360px, 24vw, 460px);
+    max-height: 300px;
+  }
+}
+
+/* Fade sutil a los laterales */
+.service-marquee::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, #07111F, rgba(7, 17, 31, 0));
+  z-index: 2;
+  pointer-events: none;
+}
+
+.service-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to left, #07111F, rgba(7, 17, 31, 0));
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .service-marquee::before,
+  .service-marquee::after {
+    width: 20px;
+  }
+}
+
+@keyframes service-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================================================
+   Base: balance de texto, focus, scrollbar, estados táctiles
+   ============================================================ */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-wrap: balance;
+}
+
+*:focus-visible {
+  outline: 2px solid #A78BFA;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(109, 40, 217, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(109, 40, 217, 0.5);
+}
+
+button:active,
+a:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+::placeholder {
+  color: #6b7280;
+  opacity: 1;
+}
+
+/* ============================================================
+   Accesibilidad: movimiento reducido
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Los elementos reveal nunca deben quedar ocultos */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .animate-float-slow,
+  .animate-pulse-dot {
+    animation: none !important;
+  }
+
+  .service-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .fixed,
+  header,
+  footer,
+  #mobile-menu {
+    display: none !important;
+  }
+
+  body {
+    color: #000000;
+    background: #ffffff;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

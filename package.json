@@ -1,0 +1,20 @@
+{
+  "name": "fp-systems",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page de FP Systems (Iquitos, Perú) - Sistemas a medida, web y automatización",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "lucide-react": "^1.31.0",
+    "next": "^16.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwindcss": "^4.3.3"
+  }
+}

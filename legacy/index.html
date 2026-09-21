@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FP Systems | Sistemas a Medida para Negocios y Empresas</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sora para títulos, Inter para lectura) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purpleDark: '#5B21B6',
+                            purpleBright: '#6D28D9',
+                            graphite: '#111827',
+                            darkGray: '#374151',
+                            lightGray: '#F9FAFB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Sora', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-sans text-brand-darkGray bg-white antialiased selection:bg-brand-purpleBright selection:text-white">
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/51900000000?text=Hola%20FP%20Systems,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto."
+       target="_blank" rel="noopener noreferrer"
+       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group"
+       aria-label="Contacto por WhatsApp">
+        <i data-lucide="message-circle" class="w-7 h-7 fill-current"></i>
+        <span class="absolute right-14 bg-brand-graphite text-white text-xs font-semibold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-xl">
+            ¡Chatea con nosotros!
+        </span>
+    </a>
+
+    <!-- 1. HEADER / NAVBAR -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-40 border-b border-gray-100 custom-shadow">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#inicio" class="flex items-center space-x-3 group">
+                <svg class="w-9 h-9 text-brand-purpleBright transition-transform duration-300 group-hover:rotate-6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 40H50C58 40 58 55 50 55H30" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M20 60H40" stroke="#374151" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M35 25H75" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+                    <circle cx="75" cy="25" r="6" fill="#6D28D9"/>
+                    <circle cx="20" cy="40" r="6" fill="#6D28D9"/>
+                    <circle cx="20" cy="60" r="6" fill="#374151"/>
+                </svg>
+                <span class="font-title font-extrabold text-xl tracking-tight text-brand-graphite">FP <span class="text-brand-purpleBright font-light">SYSTEMS</span></span>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-brand-darkGray">
+                <a href="#inicio" class="hover:text-brand-purpleBright transition-colors">Inicio</a>
+                <a href="#que-hacemos" class="hover:text-brand-purpleBright transition-colors">Servicios</a>
+                <a href="#proyectos" class="hover:text-brand-purpleBright transition-colors">Proyectos</a>
+                <a href="#proceso" class="hover:text-brand-purpleBright transition-colors">Proceso</a>
+                <a href="#nosotros" class="hover:text-brand-purpleBright transition-colors">Nosotros</a>
+                <a href="#contacto" class="hover:text-brand-purpleBright transition-colors">Contacto</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="#contacto" class="bg-brand-graphite hover:bg-brand-purpleBright text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm active:scale-[0.98]">
+                    Cotizar proyecto
+                </a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-brand-graphite focus:outline-none" aria-label="Abrir menú">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 flex flex-col p-6 space-y-4 font-medium custom-shadow">
+            <a href="#inicio" class="mobile-link hover:text-brand-purpleBright py-2">Inicio</a>
+            <a href="#que-hacemos" class="mobile-link hover:text-brand-purpleBright py-2">Servicios</a>
+            <a href="#proyectos" class="mobile-link hover:text-brand-purpleBright py-2">Proyectos</a>
+            <a href="#proceso" class="mobile-link hover:text-brand-purpleBright py-2">Proceso</a>
+            <a href="#nosotros" class="mobile-link hover:text-brand-purpleBright py-2">Nosotros</a>
+            <a href="#contacto" class="mobile-link hover:text-brand-purpleBright py-2">Contacto</a>
+            <a href="#contacto" class="mobile-link bg-brand-purpleBright text-white text-center py-3 rounded-lg font-semibold">Cotizar proyecto</a>
+        </div>
+    </header>
+
+    <!-- 2. HERO PRINCIPAL -->
+    <section id="inicio" class="pt-28 pb-16 md:pt-32 md:pb-24 hero-gradient overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                <div class="inline-flex items-center space-x-2 bg-purple-50 border border-purple-100 rounded-full px-4 py-1.5 text-xs font-semibold text-brand-purpleBright uppercase tracking-wider">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                    <span>Innovación a tu alcance</span>
+                </div>
+                <h1 class="font-title font-extrabold text-4xl sm:text-5xl lg:text-6xl text-brand-graphite leading-tight tracking-tight">
+                    Sistematizamos negocios y empresas con soluciones digitales a medida
+                </h1>
+                <p class="text-base sm:text-lg text-brand-darkGray max-w-2xl mx-auto md:mx-0 leading-relaxed">
+                    En FP Systems creamos sistemas personalizados, páginas web y soluciones avanzadas para ayudar a negocios, empresas e instituciones a ordenar sus procesos, mejorar su gestión y fortalecer su presencia digital.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-4">
+                    <a href="#contacto" class="bg-brand-purpleBright hover:bg-brand-purpleDark text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-purple-200 transition-all text-center active:scale-[0.98]">
+                        Cotizar proyecto
+                    </a>
+                    <a href="#que-hacemos" class="border border-gray-200 hover:border-brand-purpleBright hover:text-brand-purpleBright text-brand-graphite font-semibold px-8 py-4 rounded-xl transition-all text-center bg-white">
+                        Ver soluciones
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-5 relative flex justify-center">
+                <div class="relative w-full max-w-sm bg-white border border-gray-100 rounded-2xl shadow-2xl p-6 transition-all duration-500 hover:scale-[1.02]">
+                    <div class="flex items-center justify-between mb-6 border-b border-gray-50 pb-4">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-red-400 rounded-full"></span>
+                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                            <span class="w-3 h-3 bg-green-400 rounded-full"></span>
+                        </div>
+                        <span class="text-xs font-mono text-gray-400">fp-systems.live</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-brand-lightGray p-4 rounded-xl flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-purple-100 p-2 rounded-lg text-brand-purpleBright"><i data-lucide="cpu" class="w-5 h-5"></i></div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-medium">Automatizaciones IA</p>
+                                    <p class="text-sm font-bold text-brand-graphite">Flujos Activos</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-green-500 bg-green-50 px-2 py-1 rounded">99.8%</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border border-gray-100 p-4 rounded-xl">
+                                <p class="text-xs text-gray-400">Eficiencia</p>
+                                <p class="text-xl font-bold text-brand-graphite mt-1">+45%</p>
+                            </div>
+                            <div class="border border-gray-100 p-4 rounded-xl bg-brand-graphite text-white">
+                                <p class="text-xs text-gray-400">Procesos</p>
+                                <p class="text-xl font-bold mt-1">24/7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="max-w-7xl mx-auto border-gray-100">
+
+    <!-- 3. QUÉ HACEMOS -->
+    <section id="que-hacemos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="font-title font-bold text-3xl md:text-4xl text-brand-graphite tracking-tight">Qué hacemos</h2>
+                <p class="text-brand-darkGray">En FP Systems nos enfocamos en cuatro servicios principales para ayudar a negocios y empresas a crecer y mejorar sus operaciones.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- A) Sistemas personalizados -->
+                <div class="border border-gray-100 p-8 rounded-2xl custom-shadow hover:border-brand-purpleBright/30 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-purple-50 text-brand-purpleBright rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-purpleBright group-hover:text-white transition-all"><i data-lucide="cpu"></i></div>
+                    <h3 class="font-title font-semibold text-lg text-brand-graphite mb-2">Sistemas personalizados</h3>
+                    <p class="text-sm leading-relaxed">Creamos sistemas adaptados al funcionamiento real de cada negocio o empresa: ventas, inventario, clientes, pedidos, caja, reportes, usuarios y procesos internos.</p>
+                </div>
+
+                <!-- B) Páginas web empresariales -->
+                <div class="border border-gray-100 p-8 rounded-2xl custom-shadow hover:border-brand-purpleBright/30 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-purple-50 text-brand-purpleBright rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-purpleBright group-hover:text-white transition-all"><i data-lucide="globe"></i></div>
+                    <h3 class="font-title font-semibold text-lg text-brand-graphite mb-2">Páginas web empresariales</h3>
+                    <p class="text-sm leading-relaxed">Diseñamos páginas web modernas para presentar tu negocio, mostrar tus servicios, generar confianza y recibir consultas mediante WhatsApp o formularios.</p>
+                </div>
+
+                <!-- C) Soluciones avanzadas -->
+                <div class="border border-gray-100 p-8 rounded-2xl custom-shadow hover:border-brand-purpleBright/30 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-purple-50 text-brand-purpleBright rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-purpleBright group-hover:text-white transition-all"><i data-lucide="zap"></i></div>
+                    <h3 class="font-title font-semibold text-lg text-brand-graphite mb-2">Soluciones avanzadas</h3>
+                    <p class="text-sm leading-relaxed">Desarrollamos automatizaciones, dashboards, reportes inteligentes y herramientas con inteligencia artificial según las necesidades y alcance de cada proyecto.</p>
+                </div>
+
+                <!-- D) Apoyo digital para redes -->
+                <div class="border border-gray-100 p-8 rounded-2xl custom-shadow hover:border-brand-purpleBright/30 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-purple-50 text-brand-purpleBright rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-purpleBright group-hover:text-white transition-all"><i data-lucide="share-2"></i></div>
+                    <h3 class="font-title font-semibold text-lg text-brand-graphite mb-2">Apoyo digital para redes</h3>
+                    <p class="text-sm leading-relaxed">Como complemento, apoyamos la presencia digital de tu negocio con revisión de redes, flyers, banners, publicaciones e imagen visual básica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PROBLEMAS QUE RESOLVEMOS -->
+    <section class="py-20 bg-brand-lightGray">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5 space-y-4">
+                    <h2 class="font-title font-bold text-3xl md:text-4xl text-brand-graphite tracking-tight">Ordenamos procesos y convertimos necesidades en sistemas</h2>
+                    <p class="text-brand-darkGray leading-relaxed">
+                        Muchos negocios crecen usando cuadernos, hojas de Excel, mensajes sueltos o procesos manuales. En FP Systems analizamos esa realidad y la convertimos en sistemas claros, útiles y adaptados a la forma de trabajar de cada cliente.
+                    </p>
+                </div>
+                <div id="problemas-grid" class="md:col-span-7 grid sm:grid-cols-2 gap-4">
+                    <!-- Contenido generado por JavaScript -->
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-brand-graphite font-medium text-lg">
+                    Creamos soluciones digitales simples, modernas y escalables para que tu negocio trabaje con más orden y claridad.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SERVICIOS PRINCIPALES DETALLADOS -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 space-y-24">
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-5">
+                    <div class="text-xs font-bold text-brand-purpleBright tracking-wider uppercase">Desarrollo a medida</div>
+                    <h3 class="font-title font-bold text-2xl md:text-3xl text-brand-graphite">Sistemas personalizados para negocios y empresas</h3>
+                    <p class="text-brand-darkGray text-sm md:text-base">Analizamos el funcionamiento real de cada negocio y creamos un sistema adaptado a sus necesidades reales, evitando procesos manuales, pérdida de información, desorden operativo y reportes lentos.</p>
+                    <div id="modulos-1" class="grid grid-cols-2 gap-3 pt-2">
+                        <!-- Contenido generado por JavaScript -->
+                    </div>
+                </div>
+                <div class="bg-brand-lightGray rounded-2xl h-64 border border-gray-100 flex items-center justify-center text-gray-400"><i data-lucide="terminal" class="w-12 h-12"></i></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center md:flex-row-reverse">
+                <div class="md:order-2 space-y-5">
+                    <div class="text-xs font-bold text-brand-purpleBright tracking-wider uppercase">Rubros específicos</div>
+                    <h3 class="font-title font-bold text-2xl md:text-3xl text-brand-graphite">Sistemas para rubros específicos</h3>
+                    <p class="text-brand-darkGray text-sm md:text-base">Desarrollamos sistemas para restaurantes, tiendas, veterinarias y otros rubros según necesidad. Cada solución se adapta al flujo real del negocio, no a una plantilla genérica.</p>
+                    <div id="modulos-2" class="grid grid-cols-2 gap-3 pt-2">
+                        <!-- Contenido generado por JavaScript -->
+                    </div>
+                </div>
+                <div class="md:order-1 bg-brand-lightGray rounded-2xl h-64 border border-gray-100 flex items-center justify-center text-gray-400"><i data-lucide="panels-top-left" class="w-12 h-12"></i></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-5">
+                    <div class="text-xs font-bold text-brand-purpleBright tracking-wider uppercase">Diseño web profesional</div>
+                    <h3 class="font-title font-bold text-2xl md:text-3xl text-brand-graphite">Diseño y desarrollo web profesional</h3>
+                    <p class="text-brand-darkGray text-sm md:text-base">Diseñamos y desarrollamos páginas web modernas, responsivas y optimizadas para presentar tu negocio, mostrar tus servicios y recibir consultas por WhatsApp o formularios.</p>
+                    <div id="modulos-3" class="grid grid-cols-2 gap-3 pt-2">
+                        <!-- Contenido generado por JavaScript -->
+                    </div>
+                </div>
+                <div class="bg-brand-lightGray rounded-2xl h-64 border border-gray-100 flex items-center justify-center text-gray-400"><i data-lucide="zap" class="w-12 h-12"></i></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center md:flex-row-reverse">
+                <div class="md:order-2 space-y-5">
+                    <div class="text-xs font-bold text-brand-purpleBright tracking-wider uppercase">Automatización e IA</div>
+                    <h3 class="font-title font-bold text-2xl md:text-3xl text-brand-graphite">Soluciones avanzadas según el proyecto</h3>
+                    <p class="text-brand-darkGray text-sm md:text-base">Cuando el proyecto lo requiere, podemos desarrollar soluciones avanzadas como automatización de procesos, dashboards, reportes inteligentes y herramientas con inteligencia artificial.</p>
+                    <div id="modulos-4" class="grid grid-cols-2 gap-3 pt-2">
+                        <!-- Contenido generado por JavaScript -->
+                    </div>
+                </div>
+                <div class="md:order-1 bg-brand-lightGray rounded-2xl h-64 border border-gray-100 flex items-center justify-center text-gray-400"><i data-lucide="brain" class="w-12 h-12"></i></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-5">
+                    <div class="text-xs font-bold text-brand-purpleBright tracking-wider uppercase">Redes y presencia digital</div>
+                    <h3 class="font-title font-bold text-2xl md:text-3xl text-brand-graphite">Apoyo digital para redes</h3>
+                    <p class="text-brand-darkGray text-sm md:text-base">Como complemento a nuestros servicios, ayudamos a mejorar la presencia digital del negocio mediante revisión visual de redes, publicaciones, flyers, banners y piezas promocionales básicas.</p>
+                    <div id="modulos-5" class="grid grid-cols-2 gap-3 pt-2">
+                        <!-- Contenido generado por JavaScript -->
+                    </div>
+                </div>
+                <div class="bg-brand-lightGray rounded-2xl h-64 border border-gray-100 flex items-center justify-center text-gray-400"><i data-lucide="share-2" class="w-12 h-12"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PORTAFOLIO / PROYECTOS -->
+    <section id="proyectos" class="py-20 bg-brand-lightGray">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-title font-bold text-3xl md:text-4xl text-brand-graphite tracking-tight">Ejemplos de soluciones que podemos desarrollar</h2>
+                <p class="text-brand-darkGray mt-4">Estos proyectos representan algunos tipos de sistemas y soluciones que FP Systems puede crear para distintos negocios y empresas. Cada sistema puede adaptarse a las necesidades específicas del cliente.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Proyecto 1: Sistema para restaurante -->
+                <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-title font-bold text-xl text-brand-graphite">Sistema para restaurante</h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-brand-purpleBright">Demo</span>
+                        </div>
+                        <p class="text-xs text-red-500 mb-1"><strong>Problema:</strong> Control manual de mesas, pedidos, pagos e inventario.</p>
+                        <p class="text-sm text-brand-darkGray mb-4 max-w-[65ch]"><strong>Solución:</strong> Sistema para gestionar mesas, pedidos, cocina, caja, delivery, inventario y reportes.</p>
+                        <div id="proyecto-1-tags" class="flex flex-wrap gap-2 mb-6">
+                            <!-- Contenido generado por JavaScript -->
+                        </div>
+                    </div>
+                    <a href="#contacto" class="w-full text-center bg-brand-lightGray hover:bg-brand-purpleBright hover:text-white text-brand-graphite text-sm font-semibold py-3 rounded-xl transition-colors">Solicitar algo similar</a>
+                </div>
+
+                <!-- Proyecto 2: Sistema para tienda -->
+                <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-title font-bold text-xl text-brand-graphite">Sistema para tienda</h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-brand-purpleBright">Demo</span>
+                        </div>
+                        <p class="text-xs text-red-500 mb-1"><strong>Problema:</strong> Dificultad para controlar productos, ventas, stock y clientes.</p>
+                        <p class="text-sm text-brand-darkGray mb-4"><strong>Solución:</strong> Sistema para registrar ventas, controlar inventario, administrar productos, clientes y reportes.</p>
+                        <div id="proyecto-2-tags" class="flex flex-wrap gap-2 mb-6">
+                            <!-- Contenido generado por JavaScript -->
+                        </div>
+                    </div>
+                    <a href="#contacto" class="w-full text-center bg-brand-lightGray hover:bg-brand-purpleBright hover:text-white text-brand-graphite text-sm font-semibold py-3 rounded-xl transition-colors">Solicitar algo similar</a>
+                </div>
+
+                <!-- Proyecto 3: Sistema veterinario -->
+                <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-title font-bold text-xl text-brand-graphite">Sistema veterinario</h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-brand-purpleBright">Demo</span>
+                        </div>
+                        <p class="text-xs text-red-500 mb-1"><strong>Problema:</strong> Registro desordenado de pacientes, citas e historial clínico.</p>
+                        <p class="text-sm text-brand-darkGray mb-4"><strong>Solución:</strong> Sistema para registrar mascotas, dueños, historial clínico, citas, atenciones y reportes.</p>
+                        <div id="proyecto-3-tags" class="flex flex-wrap gap-2 mb-6">
+                            <!-- Contenido generado por JavaScript -->
+                        </div>
+                    </div>
+                    <a href="#contacto" class="w-full text-center bg-brand-lightGray hover:bg-brand-purpleBright hover:text-white text-brand-graphite text-sm font-semibold py-3 rounded-xl transition-colors">Solicitar algo similar</a>
+                </div>
+
+                <!-- Proyecto 4: Página web empresarial -->
+                <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-title font-bold text-xl text-brand-graphite">Página web empresarial</h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-brand-purpleBright">Demo</span>
+                        </div>
+                        <p class="text-xs text-red-500 mb-1"><strong>Problema:</strong> Negocio sin presencia digital profesional.</p>
+                        <p class="text-sm text-brand-darkGray mb-4"><strong>Solución:</strong> Página web moderna para mostrar servicios, generar confianza y recibir consultas por WhatsApp.</p>
+                        <div id="proyecto-4-tags" class="flex flex-wrap gap-2 mb-6">
+                            <!-- Contenido generado por JavaScript -->
+                        </div>
+                    </div>
+                    <a href="#contacto" class="w-full text-center bg-brand-lightGray hover:bg-brand-purpleBright hover:text-white text-brand-graphite text-sm font-semibold py-3 rounded-xl transition-colors">Solicitar algo similar</a>
+                </div>
+
+                <!-- Proyecto 5: Dashboard administrativo -->
+                <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-title font-bold text-xl text-brand-graphite">Dashboard administrativo</h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-brand-purpleBright">Demo</span>
+                        </div>
+                        <p class="text-xs text-red-500 mb-1"><strong>Problema:</strong> Falta de información clara para tomar decisiones.</p>
+                        <p class="text-sm text-brand-darkGray mb-4"><strong>Solución:</strong> Panel visual con ventas, gastos, ganancias, metas e indicadores importantes.</p>
+                        <div id="proyecto-5-tags" class="flex flex-wrap gap-2 mb-6">
+                            <!-- Contenido generado por JavaScript -->
+                        </div>
+                    </div>
+                    <a href="#contacto" class="w-full text-center bg-brand-lightGray hover:bg-brand-purpleBright hover:text-white text-brand-graphite text-sm font-semibold py-3 rounded-xl transition-colors">Solicitar algo similar</a>
+                </div>
+
+                <!-- Proyecto 6: Automatización o solución avanzada -->
+                <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-title font-bold text-xl text-brand-graphite">Automatización o solución avanzada</h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-brand-purpleBright">Demo</span>
+                        </div>
+                        <p class="text-xs text-red-500 mb-1"><strong>Problema:</strong> Procesos repetitivos o reportes manuales.</p>
+                        <p class="text-sm text-brand-darkGray mb-4"><strong>Solución:</strong> Automatización de tareas, generación de reportes y organización de información según el proyecto.</p>
+                        <div id="proyecto-6-tags" class="flex flex-wrap gap-2 mb-6">
+                            <!-- Contenido generado por JavaScript -->
+                        </div>
+                    </div>
+                    <a href="#contacto" class="w-full text-center bg-brand-lightGray hover:bg-brand-purpleBright hover:text-white text-brand-graphite text-sm font-semibold py-3 rounded-xl transition-colors">Solicitar algo similar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. POR QUÉ ELEGIRNOS -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-title font-bold text-3xl md:text-4xl text-brand-graphite tracking-tight">Tecnología útil, clara y adaptada a tu realidad</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="space-y-2">
+                    <div class="text-brand-purpleBright"><i data-lucide="sliders"></i></div>
+                    <h4 class="font-title font-semibold text-brand-graphite">Soluciones a medida</h4>
+                    <p class="text-sm">Diseño de software exclusivo para tu flujo de trabajo sin agregados innecesarios.</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-brand-purpleBright"><i data-lucide="smartphone"></i></div>
+                    <h4 class="font-title font-semibold text-brand-graphite">Diseño moderno y responsive</h4>
+                    <p class="text-sm">Adaptabilidad total y estética premium en cualquier resolución de pantalla.</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-brand-purpleBright"><i data-lucide="activity"></i></div>
+                    <h4 class="font-title font-semibold text-brand-graphite">Enfoque práctico</h4>
+                    <p class="text-sm">Herramientas directas orientadas a solucionar cuellos de botella específicos.</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-brand-purpleBright"><i data-lucide="users"></i></div>
+                    <h4 class="font-title font-semibold text-brand-graphite">Acompañamiento en el proceso</h4>
+                    <p class="text-sm">Soporte continuo y cercanía técnica desde el primer día.</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-brand-purpleBright"><i data-lucide="trending-up"></i></div>
+                    <h4 class="font-title font-semibold text-brand-graphite">Tecnología escalable</h4>
+                    <p class="text-sm">Código limpio preparado para crecer al mismo ritmo que tu empresa.</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-brand-purpleBright"><i data-lucide="message-square"></i></div>
+                    <h4 class="font-title font-semibold text-brand-graphite">Comunicación clara</h4>
+                    <p class="text-sm">Sin tecnicismos excesivos ni rodeos comerciales: transparencia absoluta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PROCESO DE TRABAJO -->
+    <section id="proceso" class="py-20 bg-brand-lightGray">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-title font-bold text-3xl md:text-4xl text-brand-graphite tracking-tight">Así trabajamos tu proyecto</h2>
+            </div>
+            <div class="relative grid md:grid-cols-5 gap-8">
+                <div class="bg-white p-6 rounded-xl border border-gray-100 relative">
+                    <span class="absolute -top-4 left-6 w-8 h-8 bg-brand-purpleBright text-white rounded-full flex items-center justify-center font-bold text-sm">1</span>
+                    <h4 class="font-title font-semibold text-brand-graphite mt-2 mb-2">Escuchamos tu necesidad</h4>
+                    <p class="text-xs leading-relaxed">Analizamos qué problema quieres resolver y cómo trabaja actualmente tu negocio.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 relative">
+                    <span class="absolute -top-4 left-6 w-8 h-8 bg-brand-purpleBright text-white rounded-full flex items-center justify-center font-bold text-sm">2</span>
+                    <h4 class="font-title font-semibold text-brand-graphite mt-2 mb-2">Diseñamos la solución</h4>
+                    <p class="text-xs leading-relaxed">Definimos pantallas, funciones, usuarios, flujo y alcance del proyecto.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 relative">
+                    <span class="absolute -top-4 left-6 w-8 h-8 bg-brand-purpleBright text-white rounded-full flex items-center justify-center font-bold text-sm">3</span>
+                    <h4 class="font-title font-semibold text-brand-graphite mt-2 mb-2">Desarrollamos el sistema</h4>
+                    <p class="text-xs leading-relaxed">Construimos la solución con diseño moderno, estructura clara y pruebas.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 relative">
+                    <span class="absolute -top-4 left-6 w-8 h-8 bg-brand-purpleBright text-white rounded-full flex items-center justify-center font-bold text-sm">4</span>
+                    <h4 class="font-title font-semibold text-brand-graphite mt-2 mb-2">Entregamos y capacitamos</h4>
+                    <p class="text-xs leading-relaxed">Te explicamos cómo usar el sistema y dejamos todo listo para operar.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 relative">
+                    <span class="absolute -top-4 left-6 w-8 h-8 bg-brand-purpleBright text-white rounded-full flex items-center justify-center font-bold text-sm">5</span>
+                    <h4 class="font-title font-semibold text-brand-graphite mt-2 mb-2">Mejoramos contigo</h4>
+                    <p class="text-xs leading-relaxed">Podemos seguir agregando funciones, corrigiendo detalles o dando soporte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. PLANES / TIPOS DE SOLUCIÓN -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="border border-gray-100 p-6 rounded-2xl flex flex-col justify-between custom-shadow">
+                    <div>
+                        <h4 class="font-title font-bold text-lg text-brand-graphite mb-1">Web Presencial</h4>
+                        <p class="text-xs text-gray-500 mb-4">Para negocios que necesitan una página profesional.</p>
+                    </div>
+                    <a href="https://wa.me/51900000000?text=Hola,%20solicito%20información%20sobre%20Web%20Presencial" class="w-full text-center bg-brand-graphite hover:bg-brand-purpleBright text-white text-xs font-semibold py-2.5 rounded-lg transition-colors">Consultar por WhatsApp</a>
+                </div>
+                <div class="border border-brand-purpleBright/40 p-6 rounded-2xl flex flex-col justify-between custom-shadow relative">
+                    <span class="absolute -top-3 right-4 bg-brand-purpleBright text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Popular</span>
+                    <div>
+                        <h4 class="font-title font-bold text-lg text-brand-graphite mb-1">Sistema Básico</h4>
+                        <p class="text-xs text-gray-500 mb-4">Para controlar ventas, productos, clientes o registros.</p>
+                    </div>
+                    <a href="https://wa.me/51900000000?text=Hola,%20solicito%20información%20sobre%20Sistema%20Básico" class="w-full text-center bg-brand-purpleBright hover:bg-brand-purpleDark text-white text-xs font-semibold py-2.5 rounded-lg transition-colors">Consultar por WhatsApp</a>
+                </div>
+                <div class="border border-gray-100 p-6 rounded-2xl flex flex-col justify-between custom-shadow">
+                    <div>
+                        <h4 class="font-title font-bold text-lg text-brand-graphite mb-1">Sistema Empresarial</h4>
+                        <p class="text-xs text-gray-500 mb-4">Para negocios con usuarios, reportes, inventario, pagos y módulos avanzados.</p>
+                    </div>
+                    <a href="https://wa.me/51900000000?text=Hola,%20solicito%20información%20sobre%20Sistema%20Empresarial" class="w-full text-center bg-brand-graphite hover:bg-brand-purpleBright text-white text-xs font-semibold py-2.5 rounded-lg transition-colors">Consultar por WhatsApp</a>
+                </div>
+                <div class="border border-gray-100 p-6 rounded-2xl flex flex-col justify-between custom-shadow">
+                    <div>
+                        <h4 class="font-title font-bold text-lg text-brand-graphite mb-1">Solución IA / Automatización</h4>
+                        <p class="text-xs text-gray-500 mb-4">Para procesos específicos con inteligencia artificial o automatización.</p>
+                    </div>
+                    <a href="https://wa.me/51900000000?text=Hola,%20solicito%20información%20sobre%20IA%20y%20Automatización" class="w-full text-center bg-brand-graphite hover:bg-brand-purpleBright text-white text-xs font-semibold py-2.5 rounded-lg transition-colors">Consultar por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. SOBRE NOSOTROS -->
+    <section id="nosotros" class="py-20 bg-brand-lightGray">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h2 class="font-title font-bold text-3xl md:text-4xl text-brand-graphite tracking-tight">Sobre FP Systems</h2>
+                <p class="text-brand-darkGray text-sm md:text-base leading-relaxed">
+                    FP Systems nace de la unión entre Figueroa y Panaifo con el objetivo de crear soluciones digitales útiles, modernas y accesibles para negocios, emprendedores e instituciones. Nuestro enfoque combina desarrollo de software, diseño, automatización e inteligencia artificial para construir herramientas que realmente ayuden a mejorar procesos.
+                </p>
+                <p class="text-brand-darkGray text-sm md:text-base leading-relaxed font-medium text-brand-graphite">
+                    "No solo creamos páginas o sistemas; buscamos entender cómo trabaja cada negocio para construir soluciones que se adapten a su realidad."
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+                    <h5 class="font-title font-bold text-brand-purpleBright mb-1">Claridad</h5>
+                    <p class="text-xs text-gray-500">Procesos transparentes de principio a fin.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+                    <h5 class="font-title font-bold text-brand-purpleBright mb-1">Innovación</h5>
+                    <p class="text-xs text-gray-500">Últimas tendencias en IA y Software.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+                    <h5 class="font-title font-bold text-brand-purpleBright mb-1">Responsabilidad</h5>
+                    <p class="text-xs text-gray-500">Cumplimiento estricto de alcances.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+                    <h5 class="font-title font-bold text-brand-purpleBright mb-1">Soluciones reales</h5>
+                    <p class="text-xs text-gray-500">Impacto directo sobre la rentabilidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. CONTACTO -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12">
+
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="font-title font-bold text-3xl md:text-4xl text-brand-graphite tracking-tight">¿Tienes una idea o problema que quieres digitalizar?</h2>
+                    <p class="text-brand-darkGray text-sm md:text-base">Escríbenos y evaluamos la mejor solución para tu negocio.</p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center space-x-3 text-sm">
+                            <span class="text-brand-purpleBright"><i data-lucide="mail" class="w-5 h-5"></i></span>
+                            <span class="font-medium">contacto@fpsystems.com</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-sm">
+                            <span class="text-brand-purpleBright"><i data-lucide="map-pin" class="w-5 h-5"></i></span>
+                            <span class="font-medium">Iquitos, Perú</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-brand-lightGray p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <form action="#" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-graphite uppercase mb-1">Nombre completo</label>
+                            <input type="text" placeholder="Ej. Juan Pérez" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purpleBright transition-colors" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-graphite uppercase mb-1">Empresa o negocio</label>
+                            <input type="text" placeholder="Ej. Mi Negocio S.A.C." class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purpleBright transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-graphite uppercase mb-1">Servicio que necesita</label>
+                            <select class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purpleBright transition-colors">
+                                <option>Desarrollo de Sistema Personalizado</option>
+                                <option>Diseño / Desarrollo Web</option>
+                                <option>Automatización de Procesos</option>
+                                <option>Solución con IA Aplicada</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-graphite uppercase mb-1">Mensaje</label>
+                            <textarea rows="4" placeholder="Cuéntanos brevemente sobre tu proyecto..." class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purpleBright transition-colors" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-purpleBright hover:bg-brand-purpleDark text-white font-semibold py-3.5 rounded-xl transition-colors text-sm shadow-md">
+                            Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. FOOTER -->
+    <footer class="bg-brand-graphite text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-4">
+                <span class="font-title font-extrabold text-lg text-white tracking-tight">FP SYSTEMS</span>
+                <p class="text-xs leading-relaxed">Sistemas a medida, automatización inteligente y desarrollo de vanguardia tecnológica.</p>
+            </div>
+            <div>
+                <h5 class="text-white text-xs font-bold uppercase tracking-wider mb-3">Enlaces rápidos</h5>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+                    <li><a href="#proceso" class="hover:text-white transition-colors">Proceso de Trabajo</a></li>
+                    <li><a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white text-xs font-bold uppercase tracking-wider mb-3">Servicios</h5>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#que-hacemos" class="hover:text-white transition-colors">Sistemas Web</a></li>
+                    <li><a href="#que-hacemos" class="hover:text-white transition-colors">Diseño Web</a></li>
+                    <li><a href="#que-hacemos" class="hover:text-white transition-colors">Automatización e IA</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white text-xs font-bold uppercase tracking-wider mb-3">Contacto</h5>
+                <p class="text-xs">Iquitos, Loreto, Perú</p>
+                <p class="text-xs">contacto@fpsystems.com</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 border-t border-gray-800 pt-6 text-center text-xs">
+            <p>&copy; 2026 FP Systems. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

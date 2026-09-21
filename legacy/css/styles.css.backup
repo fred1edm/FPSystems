@@ -1,0 +1,167 @@
+/* Estilos personalizados para FP Systems */
+
+/* Gradiente del Hero */
+.hero-gradient {
+    background: radial-gradient(circle at top right, rgba(109, 40, 217, 0.08), transparent 45%);
+}
+
+/* Sombra personalizada */
+.custom-shadow {
+    box-shadow: 0 10px 30px -10px rgba(17, 24, 39, 0.05);
+}
+
+/* Estilos para los problemas que resolvemos */
+.problema-item {
+    @apply bg-white p-5 rounded-xl border border-gray-100 flex items-start space-x-3 shadow-sm;
+}
+
+.problema-icon {
+    @apply text-red-500 mt-0.5 flex-shrink-0;
+}
+
+.problema-text {
+    @apply text-sm font-medium text-brand-graphite;
+}
+
+/* Estilos para características de módulos */
+.modulo-feature {
+    @apply flex items-center space-x-2 text-sm text-brand-graphite;
+}
+
+.modulo-check {
+    @apply w-4 h-4 text-brand-purpleBright flex-shrink-0;
+}
+
+.modulo-text {
+    @apply text-brand-graphite;
+}
+
+/* Estilos para tags de proyectos */
+.proyecto-tag {
+    @apply bg-gray-100 text-gray-600 text-xs px-2.5 py-1 rounded;
+}
+
+/* Animaciones suaves */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Scroll suave para anclas */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus visible para accesibilidad */
+*:focus-visible {
+    @apply outline-none ring-2 ring-brand-purpleBright ring-offset-2;
+}
+
+/* Ocultar scrollbar en webkit pero mantener funcionalidad */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-brand-purpleBright/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-purpleBright/50;
+}
+
+/* Transiciones globales suaves */
+a, button, .transition-all, .transition-colors, .transition-transform {
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+/* Hover effects para cards */
+.group:hover .group-hover\:bg-brand-purpleBright {
+    @apply bg-brand-purpleBright;
+}
+
+.group:hover .group-hover\:text-white {
+    @apply text-white;
+}
+
+.group:hover .group-hover\:border-brand-purpleBright\/30 {
+    border-color: rgba(109, 40, 217, 0.3);
+}
+
+.group:hover .group-hover\:rotate-6 {
+    transform: rotate(6deg);
+}
+
+.group:hover .group-hover\:scale-\[1\.02\] {
+    transform: scale(1.02);
+}
+
+.group:hover .group-hover\:-translate-y-0\.5 {
+    transform: translateY(-0.125rem);
+}
+
+.group:hover .group-hover\:opacity-100 {
+    opacity: 1;
+}
+
+/* Estilos para formulario */
+input:focus, select:focus, textarea:focus {
+    @apply outline-none border-brand-purpleBright ring-1 ring-brand-purpleBright;
+}
+
+/* Placeholder styles */
+::placeholder {
+    @apply text-gray-400;
+}
+
+/* Selección de texto */
+::selection {
+    @apply bg-brand-purpleBright text-white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .hero-gradient {
+        background: radial-gradient(circle at top center, rgba(109, 40, 217, 0.06), transparent 50%);
+    }
+
+    .problema-item {
+        @apply p-4;
+    }
+
+    .problema-text {
+        @apply text-xs;
+    }
+}
+
+/* Print styles */
+@media print {
+    .fixed, header, footer, #mobile-menu {
+        display: none !important;
+    }
+
+    body {
+        @apply text-black bg-white;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}

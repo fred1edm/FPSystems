@@ -1,0 +1,190 @@
+/* Estilos personalizados para FP Systems */
+/* Nota: CSS puro, SIN @apply (no compila con Tailwind CDN en hojas externas). */
+
+/* Gradiente del Hero */
+.hero-gradient {
+    background: radial-gradient(circle at top right, rgba(109, 40, 217, 0.08), transparent 45%);
+}
+
+/* Sombra personalizada */
+.custom-shadow {
+    box-shadow: 0 10px 30px -10px rgba(17, 24, 39, 0.05);
+}
+
+/* Balance de texto en títulos (evita palabras huérfanas) */
+h1, h2, h3, h4, h5 {
+    text-wrap: balance;
+}
+
+/* Estilos para los problemas que resolvemos */
+.problema-item {
+    background: #ffffff;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid #f3f4f6;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.problema-icon {
+    color: #ef4444;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+}
+
+.problema-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+/* Estilos para características de módulos */
+.modulo-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #111827;
+}
+
+.modulo-check {
+    width: 1rem;
+    height: 1rem;
+    color: #6D28D9;
+    flex-shrink: 0;
+}
+
+.modulo-text {
+    color: #111827;
+}
+
+/* Estilos para tags de proyectos */
+.proyecto-tag {
+    background: #f3f4f6;
+    color: #4b5563;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.25rem;
+}
+
+/* Animaciones suaves */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Scroll suave para anclas */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus visible para accesibilidad (ring púrpura de marca) */
+*:focus-visible {
+    outline: 2px solid #6D28D9;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Scrollbar en webkit */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(109, 40, 217, 0.3);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(109, 40, 217, 0.5);
+}
+
+/* Transiciones globales suaves */
+a, button, .transition-all, .transition-colors, .transition-transform {
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+/* Estados táctiles: feedback físico al presionar */
+button:active,
+a:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* Estilos para formulario */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #6D28D9;
+    box-shadow: 0 0 0 1px #6D28D9;
+}
+
+/* Placeholder con contraste suficiente (WCAG AA sobre fondo claro) */
+::placeholder {
+    color: #6b7280;
+    opacity: 1;
+}
+
+/* Selección de texto */
+::selection {
+    background-color: #6D28D9;
+    color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .hero-gradient {
+        background: radial-gradient(circle at top center, rgba(109, 40, 217, 0.06), transparent 50%);
+    }
+
+    .problema-item {
+        padding: 1rem;
+    }
+
+    .problema-text {
+        font-size: 0.75rem;
+    }
+}
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .fixed, header, footer, #mobile-menu {
+        display: none !important;
+    }
+
+    body {
+        color: #000000;
+        background: #ffffff;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
