@@ -1,6 +1,5 @@
 # FP Systems — Landing Page (React/Next.js)
 
-> Documento de referencia para cualquier agente (Claude Code, Freebuff, etc.) que trabaje en este proyecto. Léelo primero antes de hacer cambios.
 
 ## ¿Qué es FP Systems?
 
@@ -17,11 +16,6 @@ Este repositorio contiene la **landing page institucional** (una sola página) q
 
 ## Datos clave de contacto
 
-| Dato | Valor actual |
-|---|---|
-| Email | `contacto@fpsystems.com` |
-| WhatsApp | `51929899484` (configurado en `data/content.js`) |
-| Ubicación | Iquitos, Loreto, Perú |
 
 > ⚠️ El número de WhatsApp está centralizado en `data/content.js` → `CONTACTO.whatsapp`. Cambiarlo ahí actualiza todos los enlaces del sitio.
 
